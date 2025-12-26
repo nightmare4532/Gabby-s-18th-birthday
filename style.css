@@ -1,0 +1,214 @@
+/* Color Variables for easy editing */
+:root {
+    --primary-red: #800020; /* Deep Burgundy */
+    --secondary-cream: #FFFACD; /* Soft Ivory */
+    --gold-accent: #B8860B; /* Subtle Gold */
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Lora', serif;
+    color: var(--primary-red);
+    background-color: var(--secondary-cream);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* --- Header & Titles --- */
+header {
+    background-color: var(--primary-red);
+    color: var(--secondary-cream);
+    padding: 40px 20px;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: var(--gold-accent); /* Use gold for section titles */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* --- Introduction Section --- */
+.intro {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1.1em;
+}
+
+/* --- Photo Gallery --- */
+.gallery {
+    display: grid;
+    /* This creates a fluid grid that fits items (min 300px wide) across the available space */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    background-color: #f7f3e8; /* Slightly lighter background for the frames */
+    border: 3px solid var(--gold-accent);
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3; /* Keeps a consistent landscape shape */
+    border: 1px solid var(--primary-red); /* Inner photo border */
+}
+
+.photo-item p {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: var(--primary-red);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-red);
+    color: var(--secondary-cream);
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* --- Lightbox Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top of everything */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 800px; /* Limit the max size of the photo */
+    box-shadow: 0 0 20px var(--gold-accent); /* Elegant glow/frame */
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--gold-accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- MOBILE OPTIMIZATION (Media Query: Below 600px width) --- */
+@media (max-width: 600px) {
+    
+    /* 1. Scale Down Main Titles */
+    h1 {
+        font-size: 2.5em; /* Reduced from 4em */
+        padding: 0 10px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-top: 30px;
+    }
+    
+    /* 2. Simplify Introduction Area */
+    .intro {
+        margin: 20px auto;
+        padding: 0 15px;
+        font-size: 1em;
+    }
+
+    .intro p {
+        text-align: left; /* Easier to read long text on mobile */
+    }
+    
+    /* 3. Force Photos to be Full Width (One per row) */
+    .gallery {
+        grid-template-columns: 1fr; /* Forces a single column layout */
+        padding: 20px 10px;
+        gap: 20px;
+    }
+    
+    /* 4. Modal adjustments for small screens */
+    .modal-content {
+        max-width: 95%; 
+        padding-top: 50px;
+    }
+
+    .close {
+        top: 5px;
+        right: 15px;
+    }
+    
+    /* 5. Adjust Footer */
+    footer {
+        padding: 15px 10px;
+        font-size: 0.8em;
+    }
+}
